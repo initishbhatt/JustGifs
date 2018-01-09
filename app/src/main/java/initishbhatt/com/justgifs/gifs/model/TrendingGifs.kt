@@ -1,4 +1,4 @@
-package initishbhatt.com.justgifs.api
+package initishbhatt.com.justgifs.gifs.model
 import com.squareup.moshi.Json
 
 
@@ -7,12 +7,7 @@ import com.squareup.moshi.Json
  */
 
 data class TrendingGifs(
-		@Json(name = "data") val data: List<Data>,
-		@Json(name = "pagination") val pagination: Pagination,
-		@Json(name = "meta") val meta: Meta
-)
 
-data class Data(
 		@Json(name = "type") val type: String, //gif
 		@Json(name = "id") val id: String, //3ohs7Qa1M9DxGaI94A
 		@Json(name = "slug") val slug: String, //animation-cat-dance-3ohs7Qa1M9DxGaI94A
