@@ -20,7 +20,7 @@ class TrendingPresenterImpl(val interactor: TrendingInteractor, private var view
         interactor.getTrendingGifs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ t: TrendingGifResponse -> onSuccess(trendingGifResponse = TrendingGifResponse()) },
+                .subscribe({ _: TrendingGifResponse -> onSuccess(trendingGifResponse = TrendingGifResponse()) },
                         { e -> onFaliure(e) })
     }
 
