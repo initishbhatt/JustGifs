@@ -9,6 +9,6 @@ import io.reactivex.Single
  */
 class TrendingInteractorImpl(val gifService: GifService) : TrendingInteractor {
     override fun getTrendingGifs(): Single<TrendingGifResponse> {
-        return gifService.getTrendingGifs(1, "g")
+        return gifService.getTrendingGifs(10, "g")
     }
 }

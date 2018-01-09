@@ -9,13 +9,13 @@
     android:foreground="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/gif"
+        android:id="@+id/gif_imageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
     <View
-        android:id="@+id/title_background"
+        android:id="@+id/gif_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_gravity="bottom"
@@ -24,11 +24,12 @@
         android:gravity="center" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/gif_name"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_gravity="bottom"
         android:gravity="center"
+        android:padding="4dp"
         android:textColor="@android:color/white"
         android:textSize="12sp" />
 
