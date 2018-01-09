@@ -10,6 +10,6 @@ import retrofit2.http.Query
  * @author nitishbhatt
  */
 interface GifService {
-    @GET("/v1/gifs/trending?api_key" + BuildConfig.API_KEY)
+    @GET("/v1/gifs/trending?api_key=" + BuildConfig.API_KEY)
     fun getTrendingGifs(@Query("limit") limit: Int, @Query("rating") rating: String): Single<TrendingGifResponse>
 }
