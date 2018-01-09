@@ -18,11 +18,6 @@ import javax.inject.Inject
  * @author nitishbhatt
  */
 class TrendingFragment : Fragment(), TrendingView {
-
-    override fun showTrendingGifs(trendingGifs: List<TrendingGifs>?) {
-        (trending_gifs.adapter as TrendingAdapter).addGifs(trendingGifs)
-    }
-
     @Inject
     lateinit var presenter: TrendingPresenter
 
@@ -47,4 +42,9 @@ class TrendingFragment : Fragment(), TrendingView {
         trending_gifs.layoutManager = layoutManager
         trending_gifs.adapter = TrendingAdapter()
     }
+
+    override fun showTrendingGifs(trendingGifs: List<TrendingGifs>?) {
+        (trending_gifs.adapter as TrendingAdapter).addGifs(trendingGifs)
+    }
+
 }

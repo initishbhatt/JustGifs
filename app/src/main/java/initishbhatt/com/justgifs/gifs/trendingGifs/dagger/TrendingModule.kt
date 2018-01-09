@@ -13,6 +13,7 @@ import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingPresenterIm
  */
 @Module
 class TrendingModule {
+
     @Provides
     fun provideTrendingPresenter(trendingInteractor: TrendingInteractor): TrendingPresenter {
         return TrendingPresenterImpl(trendingInteractor, null)

@@ -5,7 +5,6 @@ import com.squareup.moshi.Json
 /**
  * @author nitishbhatt
  */
-
 data class TrendingGifs(
 
 		@Json(name = "type") val type: String, //gif
