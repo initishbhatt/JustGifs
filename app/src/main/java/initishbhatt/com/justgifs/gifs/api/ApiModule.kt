@@ -1,4 +1,4 @@
-package initishbhatt.com.justgifs.api
+package initishbhatt.com.justgifs.gifs.api
 
 import dagger.Module
 import dagger.Provides
