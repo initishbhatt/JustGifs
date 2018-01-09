@@ -1,10 +1,10 @@
 package initishbhatt.com.justgifs.gifs.trendingGifs.presenter
 
-import android.util.Log
 import initishbhatt.com.justgifs.gifs.api.TrendingGifResponse
 import initishbhatt.com.justgifs.gifs.trendingGifs.view.TrendingView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
 /**
  * @author nitishbhatt
@@ -20,7 +20,7 @@ class TrendingPresenterImpl(val interactor: TrendingInteractor, private var view
         interactor.getTrendingGifs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ _: TrendingGifResponse -> onSuccess(trendingGifResponse = TrendingGifResponse()) },
+                .subscribe({ trendingGifResponse -> onSuccess(trendingGifResponse) },
                         { e -> onFaliure(e) })
     }
 
@@ -29,6 +29,6 @@ class TrendingPresenterImpl(val interactor: TrendingInteractor, private var view
     }
 
     private fun onFaliure(e: Throwable?) {
-        Log.e(e?.message, e?.stackTrace.toString())
+        Timber.e(e?.message, e?.stackTrace.toString())
     }
 }
