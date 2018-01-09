@@ -1,7 +1,7 @@
 package initishbhatt.com.justgifs
 
 import android.app.Application
-import initishbhatt.com.justgifs.gifs.api.ApiModule
+import initishbhatt.com.justgifs.gifs.network.NetworkModule
 import initishbhatt.com.justgifs.gifs.trendingGifs.dagger.TrendingComponent
 import initishbhatt.com.justgifs.gifs.trendingGifs.dagger.TrendingModule
 import timber.log.Timber
@@ -21,7 +21,7 @@ class JustGifsApp : Application() {
 
     private fun createAppComponent(): AppComponent {
         return DaggerAppComponent.builder()
-                .apiModule(ApiModule())
+                .networkModule(NetworkModule())
                 .appModule(AppModule()).build()
     }
 
