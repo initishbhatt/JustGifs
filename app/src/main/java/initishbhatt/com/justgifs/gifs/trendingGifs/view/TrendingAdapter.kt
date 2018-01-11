@@ -39,7 +39,7 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.ViewHolder>() {
     inner class ViewHolder(root: View) : RecyclerView.ViewHolder(root) {
         fun bind(trendingGifs: TrendingGifs) = with(itemView) {
             gif_name.text = trendingGifs.title
-            Glide.with(context).load(trendingGifs.images.fixedHeightStill.url).into(gif_imageview)
+            Glide.with(context).load(trendingGifs.images.fixedHeightStill.url).into(gif_imview)
         }
     }
 }
