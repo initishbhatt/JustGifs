@@ -1,5 +1,8 @@
 # JustGifs
+[![Build Status](https://www.bitrise.io/app/ff9ab6e8e189551d/status.svg?token=_uDZkb1CMAtDtTAxLLbFog&branch=dev)](https://www.bitrise.io/app/ff9ab6e8e189551d)
+
 Trending Gifs showcasing Kotlin, RxJava2, Dagger2, MVP using Clean Architecture
+
 
 ## wip images and slides
 
