@@ -7,5 +7,5 @@ import initishbhatt.com.justgifs.gifs.model.RandomGifs
  * @author nitishbhatt
  */
 class RandomGifResponse {
-    @SerializedName("data") lateinit var data: RandomGifs
+    @SerializedName("data") lateinit var data: List<RandomGifs>
 }

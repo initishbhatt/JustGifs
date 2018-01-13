@@ -2,6 +2,8 @@ package initishbhatt.com.justgifs
 
 import android.app.Application
 import initishbhatt.com.justgifs.gifs.network.NetworkModule
+import initishbhatt.com.justgifs.gifs.randomGifs.dagger.RandomComponent
+import initishbhatt.com.justgifs.gifs.randomGifs.dagger.RandomModule
 import initishbhatt.com.justgifs.gifs.searchGifs.dagger.SearchComponent
 import initishbhatt.com.justgifs.gifs.searchGifs.dagger.SearchModule
 import initishbhatt.com.justgifs.gifs.trendingGifs.dagger.TrendingComponent
@@ -15,6 +17,7 @@ class JustGifsApp : Application() {
     lateinit var appComponent: AppComponent
     lateinit var trendingComponent: TrendingComponent
     lateinit var searchComponent: SearchComponent
+    lateinit var randomComponent: RandomComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -36,5 +39,10 @@ class JustGifsApp : Application() {
     fun createSearchGifComponent(): SearchComponent {
         searchComponent = appComponent.plus(SearchModule())
         return searchComponent
+    }
+
+    fun createRandomGifComponent(): RandomComponent {
+        randomComponent = appComponent.plus(RandomModule())
+        return randomComponent
     }
 }

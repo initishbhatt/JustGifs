@@ -24,8 +24,8 @@ class RandomPresenterImpl(val interactor: RandomInteractor, private var view: Ra
                         { e -> onFaliure(e) })
     }
 
-    private fun onSuccess(randomGifResponse: RandomGifResponse) {
-        view?.showRandomGifs(randomGifResponse.data)
+    private fun onSuccess(randomGifResponse: RandomGifResponse?) {
+        view?.showRandomGifs(randomGifResponse?.data)
     }
 
     private fun onFaliure(e: Throwable?) {

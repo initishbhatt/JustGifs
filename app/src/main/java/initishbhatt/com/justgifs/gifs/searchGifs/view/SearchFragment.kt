@@ -45,10 +45,4 @@ class SearchFragment : Fragment(), SearchView {
     override fun showSearchedGifs(searchedGifs: List<SearchedGifs>?) {
         (searched_gifs.adapter as SearchAdapter).showGifs(searchedGifs)
     }
-
-    companion object {
-        fun newInstance(): SearchFragment {
-            return SearchFragment()
-        }
-    }
 }

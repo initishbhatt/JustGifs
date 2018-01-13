@@ -15,7 +15,6 @@ class JustGifsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Timber.d("oncreate")
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
         initViews()
     }
 
