@@ -1,4 +1,4 @@
-package initishbhatt.com.justgifs.gifs.trendingGifs.view
+package initishbhatt.com.justgifs.gifs.randomGifs.view
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,21 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import initishbhatt.com.justgifs.R
-import initishbhatt.com.justgifs.gifs.model.TrendingGifs
+import initishbhatt.com.justgifs.gifs.model.RandomGifs
 import kotlinx.android.synthetic.main.items_trending.view.*
 
 /**
  * @author nitishbhatt
  */
-class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.ViewHolder>() {
-    private var trendingGifs: List<TrendingGifs> = ArrayList()
-
+class RandomAdapter : RecyclerView.Adapter<RandomAdapter.ViewHolder>() {
+    private var randomGifs: List<RandomGifs> = ArrayList()
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(trendingGifs[position])
+        holder.bind(randomGifs[position])
     }
 
     override fun getItemCount(): Int {
-        return trendingGifs.size
+        return randomGifs.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -28,18 +27,17 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.ViewHolder>() {
         return ViewHolder(root)
     }
 
-    fun addGifs(trendingGifs: List<TrendingGifs>?) {
-        if (trendingGifs != null) {
-            this.trendingGifs = trendingGifs
+    fun showGifs(randomGifs: List<RandomGifs>?) {
+        if (randomGifs != null) {
+            this.randomGifs = randomGifs
             notifyDataSetChanged()
         }
     }
 
-
     inner class ViewHolder(root: View) : RecyclerView.ViewHolder(root) {
-        fun bind(trendingGifs: TrendingGifs) = with(itemView) {
-            gif_name.text = trendingGifs.title
-            Glide.with(context).load(trendingGifs.images.fixedHeightStill.url).into(gif_imview)
+        fun bind(randomGifs: RandomGifs) = with(itemView) {
+            gif_name.text = randomGifs.username
+            Glide.with(context).load(randomGifs.imageUrl).into(gif_imview)
         }
     }
 }
