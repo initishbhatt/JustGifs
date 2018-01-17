@@ -243,3 +243,4 @@ data class SearchPagination(
         @SerializedName("count") val count: Int, //5
         @SerializedName("offset") val offset: Int //0
 )
+

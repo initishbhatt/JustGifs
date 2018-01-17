@@ -8,5 +8,5 @@ import initishbhatt.com.justgifs.gifs.model.SearchedGifs
  */
 class SearchGifResponse {
     @SerializedName("data")
-    lateinit var data: List<SearchedGifs>
+    var data: List<SearchedGifs> = ArrayList()
 }
