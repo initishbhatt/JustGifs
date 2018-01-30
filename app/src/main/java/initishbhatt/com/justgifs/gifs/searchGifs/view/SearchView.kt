@@ -6,5 +6,8 @@ import initishbhatt.com.justgifs.gifs.model.SearchedGifs
  * @author nitishbhatt
  */
 interface SearchView {
+    fun showLoading()
+    fun hideLoading()
+    fun showError(throwable: String?)
     fun showSearchedGifs(searchedGifs: List<SearchedGifs>?)
 }

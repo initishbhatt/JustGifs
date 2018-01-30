@@ -2,6 +2,7 @@ package initishbhatt.com.justgifs
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
 import initishbhatt.com.justgifs.gifs.api.RandomGifResponse
 import initishbhatt.com.justgifs.gifs.model.RandomGifs
 import initishbhatt.com.justgifs.gifs.randomGifs.presenter.RandomInteractor
@@ -52,6 +53,7 @@ class RandomPresenterImplTest {
 
         //then:
         verify(mockRandomView).showRandomGifs(randomGifs)
+        verifyNoMoreInteractions(mockRandomView)
 
     }
 }

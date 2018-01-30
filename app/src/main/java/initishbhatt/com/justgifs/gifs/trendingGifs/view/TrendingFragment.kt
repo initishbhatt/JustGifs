@@ -11,6 +11,7 @@ import initishbhatt.com.justgifs.R
 import initishbhatt.com.justgifs.gifs.model.TrendingGifs
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingPresenter
 import kotlinx.android.synthetic.main.fragment_trending.*
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -18,6 +19,7 @@ import javax.inject.Inject
  * @author nitishbhatt
  */
 class TrendingFragment : Fragment(), TrendingView {
+
     @Inject
     lateinit var presenter: TrendingPresenter
 
@@ -45,6 +47,18 @@ class TrendingFragment : Fragment(), TrendingView {
 
     override fun showTrendingGifs(trendingGifs: List<TrendingGifs>?) {
         (trending_gifs.adapter as TrendingAdapter).addGifs(trendingGifs)
+    }
+
+    override fun showLoading() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        progressBar.visibility = View.GONE
+    }
+
+    override fun showError(throwable: String?) {
+        Timber.d(throwable)
     }
 
 }

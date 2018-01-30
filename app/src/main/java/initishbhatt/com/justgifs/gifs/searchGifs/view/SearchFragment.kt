@@ -11,12 +11,14 @@ import initishbhatt.com.justgifs.R
 import initishbhatt.com.justgifs.gifs.model.SearchedGifs
 import initishbhatt.com.justgifs.gifs.searchGifs.presenter.SearchPresenter
 import kotlinx.android.synthetic.main.fragment_search.*
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
  * @author nitishbhatt
  */
 class SearchFragment : Fragment(), SearchView {
+
     @Inject
     lateinit var presenter: SearchPresenter
 
@@ -45,4 +47,17 @@ class SearchFragment : Fragment(), SearchView {
     override fun showSearchedGifs(searchedGifs: List<SearchedGifs>?) {
         (searched_gifs.adapter as SearchAdapter).showGifs(searchedGifs)
     }
+
+    override fun showLoading() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        progressBar.visibility = View.GONE
+    }
+
+    override fun showError(throwable: String?) {
+        Timber.d(throwable)
+    }
+
 }
