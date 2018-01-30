@@ -2,6 +2,8 @@ package initishbhatt.com.justgifs
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
+import com.nhaarman.mockito_kotlin.whenever
 import initishbhatt.com.justgifs.gifs.api.SearchGifResponse
 import initishbhatt.com.justgifs.gifs.model.SearchedGifs
 import initishbhatt.com.justgifs.gifs.searchGifs.presenter.SearchInteractor
@@ -42,7 +44,7 @@ class SearchPresenterImplTest {
     }
 
     @Test
-    fun shouldShowRandomGifs() {
+    fun shouldShowRandomGifs_success() {
         //given:
         //val randomObservable = Single.just(randomGifs)
 
@@ -50,7 +52,21 @@ class SearchPresenterImplTest {
         searchPresenter?.setView(mockSearchView)
 
         //then:
+        verify(mockSearchView).showLoading()
+        verify(mockSearchView).hideLoading()
         verify(mockSearchView).showSearchedGifs(searchGifs)
+        verifyNoMoreInteractions(mockSearchView)
 
+    }
+    @Test
+    fun shouldShowRandomGifs_failure(){
+        val msg = "This is error"
+        whenever(mockSearchInteractor.getSearchedGifs()).thenReturn(Single.error(Throwable(msg)))
+        searchPresenter?.setView(mockSearchView)
+
+        verify(mockSearchView).showLoading()
+        verify(mockSearchView).hideLoading()
+        verify(mockSearchView).showError(msg)
+        verifyNoMoreInteractions(mockSearchView)
     }
 }

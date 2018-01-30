@@ -1,10 +1,8 @@
 package initishbhatt.com.justgifs.gifs.searchGifs.presenter
 
-import initishbhatt.com.justgifs.gifs.api.SearchGifResponse
 import initishbhatt.com.justgifs.gifs.searchGifs.view.SearchView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 /**
  * @author nitishbhatt
@@ -17,18 +15,22 @@ class SearchPresenterImpl(val interactor: SearchInteractor, private var view: Se
     }
 
     private fun getSearchedGifs() {
+        view?.showLoading()
         interactor.getSearchedGifs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ searchGifResponse -> onSuccess(searchGifResponse) },
-                        { e -> onFaliure(e) })
+                .subscribe({ searchGifResponse ->
+                    view?.apply {
+                        hideLoading()
+                        showSearchedGifs(searchGifResponse?.data)
+                    }
+                }) { throwable ->
+                    view?.apply {
+                        hideLoading()
+                        showError(throwable.message)
+                    }
+                }
+
     }
 
-    private fun onSuccess(searchGifResponse: SearchGifResponse?) {
-        view?.showSearchedGifs(searchGifResponse?.data)
-    }
-
-    private fun onFaliure(e: Throwable?) {
-        Timber.e(e?.message, e?.stackTrace.toString())
-    }
 }
