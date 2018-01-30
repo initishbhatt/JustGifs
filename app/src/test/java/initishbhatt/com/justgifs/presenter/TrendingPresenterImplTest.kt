@@ -1,4 +1,4 @@
-package initishbhatt.com.justgifs
+package initishbhatt.com.justgifs.presenter
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
