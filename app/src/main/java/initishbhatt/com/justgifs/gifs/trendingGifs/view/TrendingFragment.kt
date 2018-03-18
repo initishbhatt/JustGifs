@@ -6,8 +6,11 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import initishbhatt.com.justgifs.BR
 import initishbhatt.com.justgifs.JustGifsApp
 import initishbhatt.com.justgifs.R
+import initishbhatt.com.justgifs.RecyclerBindingAdapter
+import initishbhatt.com.justgifs.databinding.FragmentTrendingBinding
 import initishbhatt.com.justgifs.gifs.model.TrendingGifs
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingPresenter
 import kotlinx.android.synthetic.main.fragment_trending.*
@@ -22,10 +25,12 @@ class TrendingFragment : Fragment(), TrendingView {
 
     @Inject
     lateinit var presenter: TrendingPresenter
+    private lateinit var binding: FragmentTrendingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (context.applicationContext as JustGifsApp).createTrendingGifComponent().inject(this)
+        binding = FragmentTrendingBinding.inflate(activity.layoutInflater)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,15 +51,16 @@ class TrendingFragment : Fragment(), TrendingView {
     }
 
     override fun showTrendingGifs(trendingGifs: List<TrendingGifs>?) {
+        val adapter: RecyclerBindingAdapter<TrendingGifs> = RecyclerBindingAdapter(R.layout.items_trending,BR.url,trendingGifs)
         (trending_gifs.adapter as TrendingAdapter).addGifs(trendingGifs)
     }
 
     override fun showLoading() {
-        progressBar.visibility = View.VISIBLE
+        binding.progressVisibility = true
     }
 
     override fun hideLoading() {
-        progressBar.visibility = View.GONE
+        binding.progressVisibility = false
     }
 
     override fun showError(throwable: String?) {
