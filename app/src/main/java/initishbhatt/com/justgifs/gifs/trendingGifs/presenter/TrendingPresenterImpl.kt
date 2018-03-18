@@ -1,5 +1,6 @@
 package initishbhatt.com.justgifs.gifs.trendingGifs.presenter
 
+import initishbhatt.com.justgifs.gifs.api.TrendingGifResponse
 import initishbhatt.com.justgifs.gifs.trendingGifs.view.TrendingView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -19,16 +20,20 @@ class TrendingPresenterImpl(val interactor: TrendingInteractor, private var view
         interactor.getTrendingGifs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ trendingGifResponse ->
-                    view?.apply {
-                        hideLoading()
-                        showTrendingGifs(trendingGifResponse?.data)
-                    }
-                }) { throwable ->
-                    view?.apply {
-                        hideLoading()
-                        showError(throwable.message)
-                    }
-                }
+                .subscribe(this::showTrendingGifs, this::showError)
+    }
+
+    private fun showTrendingGifs(trendingGifResponse: TrendingGifResponse?) {
+        view?.apply {
+            hideLoading()
+            showTrendingGifs(trendingGifResponse?.data)
+        }
+    }
+
+    private fun showError(throwable: Throwable) {
+        view?.apply {
+            hideLoading()
+            showError(throwable.message)
+        }
     }
 }
