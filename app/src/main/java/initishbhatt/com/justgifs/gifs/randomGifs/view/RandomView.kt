@@ -1,6 +1,6 @@
 package initishbhatt.com.justgifs.gifs.randomGifs.view
 
-import initishbhatt.com.justgifs.gifs.model.RandomGifs
+import initishbhatt.com.justgifs.gifs.randomGifs.RandomGifs
 
 /**
  * @author nitishbhatt

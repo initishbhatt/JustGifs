@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import timber.log.Timber
 
 
 /**
@@ -13,7 +12,6 @@ import timber.log.Timber
 class JustGifsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d("oncreate")
         setContentView(R.layout.activity_main)
         initViews()
     }

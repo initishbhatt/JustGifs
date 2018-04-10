@@ -1,12 +1,17 @@
-package initishbhatt.com.justgifs.gifs.model
+package initishbhatt.com.justgifs.gifs.api.entity
 
 import com.google.gson.annotations.SerializedName
-
 
 /**
  * @author nitishbhatt
  */
-data class TrendingGifs(
+class TrendingGifResponse {
+    @SerializedName("data")
+    var data: List<TrendingGifsModel> = ArrayList()
+
+}
+
+data class TrendingGifsModel(
 
         @SerializedName("type") val type: String, //gif
         @SerializedName("id") val id: String, //3ohs7Qa1M9DxGaI94A

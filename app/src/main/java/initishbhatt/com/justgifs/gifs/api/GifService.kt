@@ -1,5 +1,8 @@
 package initishbhatt.com.justgifs.gifs.api
 
+import initishbhatt.com.justgifs.gifs.api.entity.RandomGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.SearchGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.TrendingGifResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

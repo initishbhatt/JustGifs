@@ -4,8 +4,8 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
 import com.nhaarman.mockito_kotlin.whenever
-import initishbhatt.com.justgifs.gifs.api.SearchGifResponse
-import initishbhatt.com.justgifs.gifs.model.SearchedGifs
+import initishbhatt.com.justgifs.gifs.api.entity.SearchGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.SearchedGifs
 import initishbhatt.com.justgifs.gifs.searchGifs.presenter.SearchInteractor
 import initishbhatt.com.justgifs.gifs.searchGifs.presenter.SearchPresenter
 import initishbhatt.com.justgifs.gifs.searchGifs.presenter.SearchPresenterImpl

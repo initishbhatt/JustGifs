@@ -2,7 +2,7 @@ package initishbhatt.com.justgifs.interactor
 
 import com.nhaarman.mockito_kotlin.mock
 import initishbhatt.com.justgifs.gifs.api.GifService
-import initishbhatt.com.justgifs.gifs.model.TrendingGifs
+import initishbhatt.com.justgifs.gifs.api.entity.TrendingGifsModel
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingInteractor
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingInteractorImpl
 import initishbhatt.com.justgifs.utils.RxSchedulersOverrideRule
@@ -21,7 +21,7 @@ class TrendingInteractorImplTest {
     @JvmField
     @Rule
     val overrideSchedulersRule = RxSchedulersOverrideRule()
-    val list: List<TrendingGifs> = ArrayList()
+    val list: List<TrendingGifsModel> = ArrayList()
 
     var mockTrendingInteractor: TrendingInteractor? = null
     val mockGifService: GifService = mock()

@@ -4,8 +4,8 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
 import com.nhaarman.mockito_kotlin.whenever
-import initishbhatt.com.justgifs.gifs.api.TrendingGifResponse
-import initishbhatt.com.justgifs.gifs.model.TrendingGifs
+import initishbhatt.com.justgifs.gifs.api.entity.TrendingGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.TrendingGifsModel
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingInteractor
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingPresenter
 import initishbhatt.com.justgifs.gifs.trendingGifs.presenter.TrendingPresenterImpl
@@ -31,7 +31,7 @@ class TrendingPresenterImplTest {
     val mockTrendingInteractor: TrendingInteractor = mock()
     val mockTrendingView: TrendingView = mock()
 
-    private var trendingGifs: List<TrendingGifs> = ArrayList()
+    private var trendingGifs: List<TrendingGifsModel> = ArrayList()
 
     private var trendingPresenter: TrendingPresenter? = null
 

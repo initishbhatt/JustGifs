@@ -3,8 +3,8 @@ package initishbhatt.com.justgifs.presenter
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
-import initishbhatt.com.justgifs.gifs.api.RandomGifResponse
-import initishbhatt.com.justgifs.gifs.model.RandomGifs
+import initishbhatt.com.justgifs.gifs.api.entity.RandomGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.RandomGifs
 import initishbhatt.com.justgifs.gifs.randomGifs.presenter.RandomInteractor
 import initishbhatt.com.justgifs.gifs.randomGifs.presenter.RandomPresenter
 import initishbhatt.com.justgifs.gifs.randomGifs.presenter.RandomPresenterImpl

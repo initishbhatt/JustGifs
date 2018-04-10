@@ -1,6 +1,6 @@
 package initishbhatt.com.justgifs.gifs.randomGifs.presenter
 
-import initishbhatt.com.justgifs.gifs.api.RandomGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.RandomGifResponse
 import initishbhatt.com.justgifs.gifs.randomGifs.view.RandomView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -25,7 +25,7 @@ class RandomPresenterImpl(val interactor: RandomInteractor, private var view: Ra
     }
 
     private fun onSuccess(randomGifResponse: RandomGifResponse?) {
-        view?.showRandomGifs(randomGifResponse?.data)
+       // view?.showRandomGifs(randomGifResponse?.data)
     }
 
     private fun onFaliure(e: Throwable?) {

@@ -1,7 +1,7 @@
 package initishbhatt.com.justgifs.gifs.randomGifs.presenter
 
 import initishbhatt.com.justgifs.gifs.api.GifService
-import initishbhatt.com.justgifs.gifs.api.RandomGifResponse
+import initishbhatt.com.justgifs.gifs.api.entity.RandomGifResponse
 import io.reactivex.Single
 
 /**

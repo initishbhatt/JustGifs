@@ -22,7 +22,7 @@ class SearchPresenterImpl(val interactor: SearchInteractor, private var view: Se
                 .subscribe({ searchGifResponse ->
                     view?.apply {
                         hideLoading()
-                        showSearchedGifs(searchGifResponse?.data)
+                 //       showSearchedGifs(searchGifResponse?.data)
                     }
                 }) { throwable ->
                     view?.apply {

@@ -1,12 +1,16 @@
-package initishbhatt.com.justgifs.gifs.model
+package initishbhatt.com.justgifs.gifs.api.entity
 
 import com.google.gson.annotations.SerializedName
-
 
 /**
  * @author nitishbhatt
  */
-data class SearchedGifs(
+class SearchGifResponse {
+    @SerializedName("data")
+    var data: List<SearchedGifsModel> = ArrayList()
+}
+
+data class SearchedGifsModel(
         @SerializedName("type") val type: String, //gif
         @SerializedName("id") val id: String, //11R5KYi6ZdP8Z2
         @SerializedName("slug") val slug: String, //crickets-11R5KYi6ZdP8Z2

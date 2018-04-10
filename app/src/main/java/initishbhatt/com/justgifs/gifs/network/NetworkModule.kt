@@ -34,7 +34,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(): OkHttpClient {
+    fun provideHttpClient(cache: Cache): OkHttpClient {
 
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         val level = getInterceptorLevel()
@@ -42,7 +42,7 @@ class NetworkModule {
         return OkHttpClient.Builder()
                 .addInterceptor(httpLoggingInterceptor)
                 .addInterceptor(ApiKeyInterceptor())
-              //  .cache(cache)
+                .cache(cache)
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS).build()
