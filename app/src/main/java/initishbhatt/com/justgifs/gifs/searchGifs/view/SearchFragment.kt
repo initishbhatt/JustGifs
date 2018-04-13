@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import initishbhatt.com.justgifs.JustGifsApp
 import initishbhatt.com.justgifs.R
-import initishbhatt.com.justgifs.gifs.model.SearchedGifs
+import initishbhatt.com.justgifs.gifs.model.SearchedModel
 import initishbhatt.com.justgifs.gifs.searchGifs.presenter.SearchPresenter
 import kotlinx.android.synthetic.main.fragment_search.*
 import timber.log.Timber
@@ -44,7 +44,7 @@ class SearchFragment : Fragment(), SearchView {
         searched_gifs.adapter = SearchAdapter()
     }
 
-    override fun showSearchedGifs(searchedGifs: List<SearchedGifs>?) {
+    override fun showSearchedGifs(searchedGifs: List<SearchedModel>?) {
         (searched_gifs.adapter as SearchAdapter).showGifs(searchedGifs)
     }
 

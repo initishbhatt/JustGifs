@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import initishbhatt.com.justgifs.JustGifsApp
 import initishbhatt.com.justgifs.R
-import initishbhatt.com.justgifs.gifs.model.RandomGifs
+import initishbhatt.com.justgifs.gifs.model.RandomModel
 import initishbhatt.com.justgifs.gifs.randomGifs.presenter.RandomPresenter
 import kotlinx.android.synthetic.main.fragment_random.*
 import javax.inject.Inject
@@ -43,7 +43,7 @@ class RandomFragment : Fragment(), RandomView {
         random_gifs.adapter = RandomAdapter()
     }
 
-    override fun showRandomGifs(randomGifs: List<RandomGifs>?) {
+    override fun showRandomGifs(randomGifs: List<RandomModel>?) {
         (random_gifs.adapter as RandomAdapter).showGifs(randomGifs)
 
     }

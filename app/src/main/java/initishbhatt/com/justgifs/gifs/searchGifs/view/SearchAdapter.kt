@@ -4,16 +4,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
+import initishbhatt.com.justgifs.GlideApp
 import initishbhatt.com.justgifs.R
-import initishbhatt.com.justgifs.gifs.model.SearchedGifs
+import initishbhatt.com.justgifs.gifs.model.SearchedModel
 import kotlinx.android.synthetic.main.items_trending.view.*
 
 /**
  * @author nitishbhatt
  */
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
-    private var searchedGifs: List<SearchedGifs> = ArrayList()
+    private var searchedGifs: List<SearchedModel> = ArrayList()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(searchedGifs[position])
@@ -23,7 +23,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
         return searchedGifs.size
     }
 
-    fun showGifs(searchedGifs: List<SearchedGifs>?) {
+    fun showGifs(searchedGifs: List<SearchedModel>?) {
         if (searchedGifs != null) {
             this.searchedGifs = searchedGifs
             notifyDataSetChanged()
@@ -36,9 +36,11 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(root: View) : RecyclerView.ViewHolder(root) {
-        fun bind(searchedGifs: SearchedGifs) = with(itemView) {
+        fun bind(searchedGifs: SearchedModel) = with(itemView) {
             gif_name.text = searchedGifs.title
-            Glide.with(context).load(searchedGifs.images.fixedHeightStill.url).into(gif_imview)
+            GlideApp.with(context)
+                    .load(searchedGifs.url)
+                    .into(gif_imview)
         }
     }
 }
