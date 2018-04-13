@@ -1,7 +1,6 @@
 package initishbhatt.com.justgifs.gifs.trendingGifs.presenter
 
 import initishbhatt.com.justgifs.gifs.api.TrendingGifResponse
-import io.reactivex.Observable
 import io.reactivex.Single
 
 

@@ -1,5 +1,6 @@
 package initishbhatt.com.justgifs.gifs.searchGifs.presenter
 
+import initishbhatt.com.justgifs.gifs.model.toSearch
 import initishbhatt.com.justgifs.gifs.searchGifs.view.SearchView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -19,10 +20,15 @@ class SearchPresenterImpl(val interactor: SearchInteractor, private var view: Se
         interactor.getSearchedGifs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .map {
+                    it.data.map {
+                        it.toSearch()
+                    }
+                }
                 .subscribe({ searchGifResponse ->
                     view?.apply {
                         hideLoading()
-                        showSearchedGifs(searchGifResponse?.data)
+                        showSearchedGifs(searchGifResponse)
                     }
                 }) { throwable ->
                     view?.apply {

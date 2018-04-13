@@ -13,15 +13,14 @@ import timber.log.Timber
 class JustGifsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d("oncreate")
         setContentView(R.layout.activity_main)
         initViews()
     }
 
     private fun initViews() {
         tab_layout.addTab(tab_layout.newTab().setText("Trending Gifs"))
-        tab_layout.addTab(tab_layout.newTab().setText("Search Gifs"))
-        tab_layout.addTab(tab_layout.newTab().setText("Gif of The Day"))
+        tab_layout.addTab(tab_layout.newTab().setText("Random Gifs"))
+       // tab_layout.addTab(tab_layout.newTab().setText("Gif of The Day"))
         val pageAdapter = JustGifsPageAdapter(supportFragmentManager, tab_layout.tabCount)
         view_pager.adapter = pageAdapter
         view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
