@@ -29,15 +29,15 @@ class TrendingFragment : Fragment(), TrendingView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (context.applicationContext as JustGifsApp).createTrendingGifComponent().inject(this)
-        binding = FragmentTrendingBinding.inflate(activity.layoutInflater)
+        (context!!.applicationContext as JustGifsApp).createTrendingGifComponent().inject(this)
+        binding = FragmentTrendingBinding.inflate(activity!!.layoutInflater)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_trending, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_trending, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         presenter.setView(this)
@@ -51,7 +51,6 @@ class TrendingFragment : Fragment(), TrendingView {
     }
 
     override fun showTrendingGifs(trendingGifs: List<TrendingGifs>?) {
-        val adapter: RecyclerBindingAdapter<TrendingGifs> = RecyclerBindingAdapter(R.layout.items_trending,BR.url,trendingGifs)
         (trending_gifs.adapter as TrendingAdapter).addGifs(trendingGifs)
     }
 

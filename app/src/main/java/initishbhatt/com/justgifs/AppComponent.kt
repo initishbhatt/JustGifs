@@ -1,5 +1,7 @@
 package initishbhatt.com.justgifs
 
+import android.app.Application
+import dagger.BindsInstance
 import dagger.Component
 import initishbhatt.com.justgifs.gifs.api.ApiModule
 import initishbhatt.com.justgifs.gifs.network.NetworkModule
@@ -20,4 +22,12 @@ interface AppComponent {
     fun plus(trendingModule: TrendingModule): TrendingComponent
     fun plus(searchModule: SearchModule): SearchComponent
     fun plus(randomModule: RandomModule): RandomComponent
+
+    @Component.Builder
+    interface Builder {
+        fun build(): AppComponent
+        @BindsInstance
+        fun application(application: Application): Builder
+
+    }
 }

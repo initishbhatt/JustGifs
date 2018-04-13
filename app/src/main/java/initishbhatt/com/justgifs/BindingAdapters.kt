@@ -13,14 +13,10 @@ import javax.inject.Singleton
  */
 @Singleton
 class BindingAdapters {
-    @BindingAdapter("android:src")
-    fun setImageUrlasGif(view: ImageView, url: String) {
-        Glide.with(view.context).asGif().load(url).into(view)
-    }
 
     @BindingAdapter("android:src")
     fun setImageUrl(view: ImageView, url: String) {
-        Glide.with(view.context).load(url).into(view)
+        GlideApp.with(view.context).load(url).into(view)
     }
 }
 

@@ -30,8 +30,8 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val root = (LayoutInflater.from(parent?.context).inflate(R.layout.items_trending, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val root = (LayoutInflater.from(parent.context).inflate(R.layout.items_trending, parent, false))
         return ViewHolder(root)
     }
 

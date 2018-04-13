@@ -13,7 +13,6 @@ import timber.log.Timber
 class JustGifsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d("oncreate")
         setContentView(R.layout.activity_main)
         initViews()
     }

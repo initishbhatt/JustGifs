@@ -33,6 +33,6 @@ class RecyclerBindingAdapter<T>(private val holderLayout: Int, private val varia
 
 
    inner class BindingHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val binding: ViewDataBinding = DataBindingUtil.bind(v)
+        val binding: ViewDataBinding = DataBindingUtil.bind(v)!!
     }
 }
